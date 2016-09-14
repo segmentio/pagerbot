@@ -55,8 +55,7 @@ module PagerBot
     # because who doesn't like one-liners. Feel free to refactor!
     +PagerBot::Utilities::DispatchMethod
     def list_schedules(query, event_data={})
-      PagerBot.log.info query
-      PagerBot.log.info @pagerduty.schedules
+      PagerBot.log.info v.aliases
       PagerBot.log.info 'TTG'
       msg = "Here are the schedules I know about (schedules in the same line are synonyms):\n" +
         @pagerduty.schedules.list.map { |v| Utilities.pluck('name', v.aliases).sort.join(', ') }.sort.join("\n")
